@@ -17,6 +17,7 @@
             --color-light-paper: #fffefb;
         }
 
+        /* 🔹 Corpo centralizado */
         body {
             margin: 0;
             padding: 0;
@@ -24,12 +25,21 @@
             background: linear-gradient(to bottom right, var(--color-bg-start), var(--color-bg-end));
             color: var(--color-dark);
             overflow-x: hidden;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .main-content {
             max-width: 1000px;
-            margin: auto;
+            width: 100%;
             padding: 20px 10px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
         }
 
         h1, h2 {
@@ -51,6 +61,11 @@
             height: 1px;
             margin: 20px auto;
             background: linear-gradient(to right, transparent, rgba(79, 128, 109, 0.5), transparent);
+        }
+
+        .music-button {
+            margin: 20px 0;
+            text-align: center;
         }
 
         .video-hex-container {
@@ -86,6 +101,9 @@
 
         .gallery {
             margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .photo {
             display: flex;
@@ -102,7 +120,7 @@
             text-align: center;
         }
 
-        /* 🔹 A carta começa escondida */
+        /* 🔹 Modal / carta */
         #poema-container {
             display: none;
             position: fixed;
@@ -116,19 +134,10 @@
             z-index: 1000;
         }
 
-        /* 🔹 Nova animação estilo livro */
         @keyframes cartaLivro {
-            0% {
-                transform: perspective(1200px) rotateY(-90deg);
-                opacity: 0;
-            }
-            60% {
-                transform: perspective(1200px) rotateY(15deg);
-                opacity: 1;
-            }
-            100% {
-                transform: perspective(1200px) rotateY(0deg);
-            }
+            0% { transform: perspective(1200px) rotateY(-90deg); opacity: 0; }
+            60% { transform: perspective(1200px) rotateY(15deg); opacity: 1; }
+            100% { transform: perspective(1200px) rotateY(0deg); }
         }
 
         .poema-carta {
@@ -169,6 +178,29 @@
         @keyframes subir {
             0% { bottom: 0; opacity: 1; transform: translateY(0); }
             100% { bottom: 100vh; opacity: 0; transform: translateY(-100vh); }
+        }
+
+        .final-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 30px 0;
+        }
+
+        .final-section img {
+            max-width: 220px;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .assinatura-final {
+            text-align: center;
+        }
+
+        .intro {
+            text-align: center;
+            font-size: 1.2rem;
+            margin: 15px 0;
         }
     </style>
 </head>
@@ -239,9 +271,9 @@
         <hr class="section-divider soft">
 
         <h1>Espero que goste eu me enpenhei no poema...</h1>
-        <h1>espero que ame, eu tenho limitações mas de agora em diante... vai ver :></h1>
+        <h1>Espero que ame, eu tenho limitações mas de agora em diante... vai ver :></h1>
 
-        <div class="intro" style="text-align:center; font-size:1.2rem; margin:15px 0;">
+        <div class="intro">
             "Tenha certeza que esse não vai ser o único aniversario seu que estarei contigo, demais, existe demais pra frente
             que estaremos juntos."
         </div>
@@ -258,7 +290,7 @@
         <div class="gallery">
             <div class="photo">
                 <img src="nena.jpg" alt="Foto 4">
-                <div class="caption">Eu vou dizer mais coisas pessoalmene um dia...</div>
+                <div class="caption">Eu vou dizer mais coisas pessoalmente um dia...</div>
                 <div class="caption">"You're the thing that connects my brain to my chest, it's because - "</div>
                 <div class="caption">"I pray that I'll die before my favorite - "</div>
                 <div class="caption">"I'll stay at your house where I'll hope that you'll protect me - "</div>    
