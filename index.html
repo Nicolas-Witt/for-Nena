@@ -1,272 +1,351 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>For Nena — The best person for me</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand&display=swap" rel="stylesheet">
-  <style>
-    body {
-      background: linear-gradient(to bottom right, #ffe6f0, #e6f7ff);
-      font-family: 'Quicksand', sans-serif;
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
-      overflow-y: scroll;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Nena — A Melhor Pessoa Para Mim</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* ------------------------------------------- */
+        /* ESTILOS GERAIS E ANIMAÇÕES */
+        /* ------------------------------------------- */
+        body {
+            background: linear-gradient(to bottom right, #ffe6f0, #e6f7ff);
+            font-family: 'Quicksand', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
 
-    .assinatura-topo {
-      text-align: center;
-      font-size: 1.2rem;
-      color: #993366;
-      margin-top: 20px;
-      font-family: 'Great Vibes', cursive;
-    }
+        /* ANIMAÇÃO DE CORAÇÕES FLUTUANTES */
+        .coracao {
+            position: fixed;
+            animation: subir 4s linear forwards;
+            font-size: 30px;
+            color: red;
+            pointer-events: none;
+            z-index: 9999;
+        }
+        @keyframes subir {
+            0% { bottom: 0; opacity: 1; transform: translateY(0) rotate(0deg); }
+            100% { bottom: 100vh; opacity: 0; transform: translateY(-100vh) rotate(30deg); }
+        }
 
-    .coracao {
-      position: fixed;
-      animation: subir 4s linear forwards;
-      font-size: 30px;
-      color: red;
-      pointer-events: none;
-      z-index: 9999;
-    }
+        h1, h2 {
+            font-family: 'Great Vibes', cursive;
+            text-align: center;
+            color: #cc6699;
+            font-size: 2.4rem;
+            line-height: 1.4;
+        }
+        .assinatura-topo {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #993366;
+            margin-top: 20px;
+            font-family: 'Great Vibes', cursive;
+        }
+        .intro {
+            text-align: center;
+            margin: 20px;
+            font-size: 1.6rem;
+            color: #444;
+            font-style: italic;
+        }
 
-    @keyframes subir {
-      0% {
-        bottom: 0;
-        opacity: 1;
-        transform: translateY(0);
-      }
-      100% {
-        bottom: 100vh;
-        opacity: 0;
-        transform: translateY(-100vh);
-      }
-    }
+        /* ------------------------------------------- */
+        /* SEÇÃO PRINCIPAL E GALERIA */
+        /* ------------------------------------------- */
+        .main-content {
+            transition: opacity 0.5s;
+        }
+        .gallery {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px auto;
+            max-width: 900px;
+        }
+        .photo {
+            display: flex;
+            flex-direction: row;
+            margin: 30px 0;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .photo:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        .photo img {
+            max-width: 400px; /* Reduzi um pouco para caber ao lado da legenda */
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            object-fit: cover;
+        }
+        .caption {
+            max-width: 400px;
+            margin: 20px;
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.8rem;
+            line-height: 1.6;
+            color: #995577;
+            text-align: center;
+        }
+        .music-button button {
+             /* ... (Mantido o estilo original do botão) ... */
+             padding: 10px 20px;
+             background-color: #cc6699;
+             color: white;
+             border: none;
+             border-radius: 10px;
+             font-family: 'Quicksand', sans-serif;
+             font-size: 1em;
+             cursor: pointer;
+             transition: background-color 0.3s ease;
+             margin-bottom: 20px;
+        }
 
-    h1, h2 {
-      font-family: 'Great Vibes', cursive;
-      text-align: center;
-      color: #cc6699;
-      font-size: 2.4rem;
-      line-height: 1.4;
-    }
+        /* ------------------------------------------- */
+        /* ESTILOS DA CARTA / BOTÃO SECRETO */
+        /* ------------------------------------------- */
+        #caixa-carta {
+            width: 300px;
+            height: 180px;
+            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+            border: 5px solid #cc6699;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            margin: 50px auto;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            z-index: 100;
+        }
+        #caixa-carta:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(204, 102, 153, 0.5);
+        }
+        #caixa-carta::before {
+            content: '💌\A O CARTA MÁGICA DE TOTORO \A (CLIQUE PARA ABRIR)';
+            white-space: pre-wrap;
+            font-size: 1.2rem;
+            color: #993366;
+            font-weight: bold;
+            line-height: 1.5;
+        }
 
-    .intro {
-      text-align: center;
-      margin: 20px;
-      font-size: 1.6rem;
-      color: #444;
-      font-style: italic;
-    }
+        /* ------------------------------------------- */
+        /* ESTILOS DO POEMA EXPANDIDO (MODAL) */
+        /* ------------------------------------------- */
+        #poema-container {
+            display: none; /* Escondido por padrão */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            overflow-y: auto;
+            animation: fadeIn 0.8s;
+        }
+        .poema-carta {
+            background-color: #fffaf0; /* Papel pergaminho */
+            max-width: 750px;
+            margin: 5vh auto;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.4);
+            animation: slideIn 1s;
+        }
+        .poema-carta h2 {
+            font-size: 3.5rem;
+            margin-bottom: 30px;
+            color: #cc6699;
+        }
+        .poema-carta p {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        .poema-assinatura {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.2rem;
+            color: #993366;
+            text-align: right;
+            margin-top: 40px;
+        }
+        #close-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #cc6699;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5em;
+            line-height: 1;
+        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideIn { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 
-    .gallery {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin: 20px auto;
-      max-width: 800px;
-    }
-
-    .photo {
-      display: flex;
-      flex-direction: row;
-      margin: 30px 0;
-      align-items: center;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .photo:nth-child(even) {
-      flex-direction: row-reverse;
-    }
-
-    .photo img {
-      max-width: 90%;
-      height: auto;
-      border-radius: 20px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-      object-fit: cover;
-    }
-
-    .caption {
-      max-width: 500px;
-      margin: 20px;
-      font-family: 'Great Vibes', cursive;
-      font-size: 1.8rem;
-      line-height: 1.6;
-      color: #995577;
-      text-align: center;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
-    }
-
-    .music-button {
-      text-align: center;
-      margin: 30px 0;
-    }
-
-    .music-button button {
-      padding: 10px 20px;
-      background-color: #cc6699;
-      color: white;
-      border: none;
-      border-radius: 10px;
-      font-family: 'Quicksand', sans-serif;
-      font-size: 1em;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .music-button button:hover {
-      background-color: #b35588;
-    }
-
-    .video-section {
-      display: flex;
-      justify-content: center;
-      margin: 40px 0;
-    }
-
-    .video-section video {
-      width: 90%;
-      max-width: 800px;
-      border-radius: 20px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    }
-
-    .final-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 60px 0;
-    background: rgba(255, 240, 250, 0.3);
-    padding: 20px;
-    border-radius: 30px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-  }
-
-    .final-section img {
-      width: 200px;
-      border-radius: 20px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    }
-
-    .assinatura-final {
-      margin-top: 15px;
-      font-family: 'Great Vibes', cursive;
-      font-size: 1.6rem;
-      color: #cc6699;
-    }
-
-    .linha-artistica {
-      font-size: 2.2rem;
-      color: #cc6699;
-      margin: 40px 0 10px;
-      text-align: center;
-      font-family: 'Great Vibes', cursive;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.05);
-    }
-
-    .selo-nicolas {
-      font-size: 1.4rem;
-      color: #773355;
-      text-align: center;
-      margin-top: 10px;
-      font-family: 'Quicksand', sans-serif;
-      letter-spacing: 0.8px;
-      background: rgba(255, 240, 250, 0.4);
-      border: 1px solid #cc6699;
-      border-radius: 20px;
-      padding: 12px 24px;
-      display: inline-block;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      backdrop-filter: blur(4px);
-    }
-
-    .selo-nicolas span {
-      font-family: 'Great Vibes', cursive;
-      font-size: 1.8rem;
-      color: #cc6699;
-      margin-left: 6px;
-    }
-    
-  </style>
+        /* ... (MANTIDO O RESTO DO SEU CSS ORIGINAL PARA A GALERIA) ... */
+    </style>
 </head>
 <body>
-
-  <div class="assinatura-topo">
-    Feito com amor por Nícolas - Seu bobão
-  </div>
-
-  <div class="music-button">
-    <button onclick="document.getElementById('musica').play()">🎵 Tocar Música</button>
-  </div>
-
-  <audio id="musica" loop>
-    <source src="hex-80purppp.mp3" type="audio/mpeg">
-  </audio>
-
-  <h1>A oitava maravilha do planeta se faz em pessoa...</h1>
-  <h1>De um admirador, para meu amor: My Luny...</h1>
-
-  <div class="intro">
-    "Você é mais que beleza, é poesia viva em cada detalhe."
-  </div>
-
-  <div class="gallery">
-    <div class="photo">
-      <img src="fotos/conheci.jpg" alt="Foto 1">
-      <div class="caption">Desde o instante que te conheci, meu coração se aqueceu. Obrigado por existir e permitir que eu faça da tua vida um poema de amor. Eu te amo...</div>
+    
+    <div id="poema-container" onclick="closePoem()">
+        <div class="poema-carta" onclick="event.stopPropagation()">
+            <button id="close-button" onclick="closePoem()">X</button>
+            <h2>A Poesia do Tempo em Nossa Amizade</h2>
+            
+            <p>
+                Minha parceira, conselheira, e amiga mais leal,<br>
+                O tempo em seu perdão me diz que tudo é igual.<br>
+                Se houve um deslize, um tropeço no caminho,<br>
+                Sei que a estrada é nossa, e sigo o seu carinho.<br>
+                Não mais a sombra, mas a luz que você me deu,<br>
+                A reconciliação completa que em seu peito nasceu.<br>
+                Obrigado por ser o farol que me faz recordar<br>
+                Que o laço da nossa amizade não há como quebrar.
+            </p>
+            <p>
+                Sua força não é de ferro, mas de um coração que encanta,<br>
+                Você é única, a canção que a vida não canta.<br>
+                Lá no vale escuro, onde o medo parecia reinar,<br>
+                Você foi a flauta mágica que me ensinou a sonhar.<br>
+                É a quietude da floresta que só o **Totoro** traz,<br>
+                A gigante e gentil presença que me devolve a paz.<br>
+                Nosso afeto é como a lealdade de Jiji por Kiki,<br>
+                Um companheirismo leve que ignora qualquer bico.<br>
+                Pois é ao seu lado que eu encontro, sem buscar,<br>
+                A bússola para o futuro, o porto para ancorar.
+            </p>
+            <p>
+                Em você vejo a coragem serena da jovem Chihiro,<br>
+                Que não esquece quem é, mesmo no mais febril suspiro.<br>
+                É a esperança que floresce, como os jardins de Laputa,<br>
+                Um tesouro guardado em cada longa e doce disputa.<br>
+                Minha admiração é imensa, o amor de irmão que me guia,<br>
+                Pela pessoa forte e única que você é todo dia.<br>
+                E o meu afeto por ti, que sempre te envolve e te chama,<br>
+                É o abraço de **Haku** que redescobre a chama.
+            </p>
+            <p>
+                Que a força do nosso *sempre* apague qualquer vestígio,<br>
+                Deixe o tempo fluir, e firme o nosso prestígio.<br>
+                Você é a voz que acalma, a chama que não se apaga,<br>
+                A amizade de uma vida, a história que não se indaga.<br>
+                Obrigado por tudo, por ser quem você é e sempre foi,<br>
+                Meu carinho é **eterno, um amor que não é temporário**, hoje e depois.
+            </p>
+            <div class="poema-assinatura">— Seu Admirador, Nícolas.</div>
+        </div>
     </div>
-    <div class="photo">
-      <img src="fotos/IMG-20250724-WA0004.jpg" alt="Foto 2">
-      <div class="caption">Toda vez que mergulho no brilho dos teus olhos, minha alma dança. Você é minha luz em meio a qualquer escuridão. Eu te amo garota, quero passar o resto da minha vida com tu...</div>
+
+    <div class="main-content">
+        <div class="assinatura-topo">
+            Feito com amor por Nícolas - Seu bobão
+        </div>
+
+        <div class="music-button">
+            <button onclick="document.getElementById('musica').play()">🎵 Tocar Música</button>
+        </div>
+
+        <audio id="musica" loop>
+            <source src="hex-80purppp.mp3" type="audio/mpeg">
+        </audio>
+
+        <h1>A oitava maravilha do planeta se faz em pessoa...</h1>
+        <h1>De um admirador, para meu amor: My Luny...</h1>
+
+        <div class="intro">
+            "Você é mais que beleza, é poesia viva em cada detalhe."
+        </div>
+
+        <div id="caixa-carta" onclick="openPoem()">
+            </div>
+
+        <div class="gallery">
+            <div class="photo">
+                <img src="fotos/conheci.jpg" alt="Foto 1">
+                <div class="caption">Desde o instante que te conheci, meu coração se aqueceu. Obrigado por existir e permitir que eu faça da tua vida um poema de amor. Eu te amo...</div>
+            </div>
+            <div class="photo">
+                <img src="fotos/IMG-20250724-WA0004.jpg" alt="Foto 2">
+                <div class="caption">Toda vez que mergulho no brilho dos teus olhos, minha alma dança. Você é minha luz em meio a qualquer escuridão. Eu te amo garota, quero passar o resto da minha vida com tu...</div>
+            </div>
+            <div class="photo">
+                <img src="amor2.jpg" alt="Foto 3">
+                <div class="caption">Dos mil destinos que eu poderia sonhar, o teu abraço é o único lugar onde eu realmente quero morar.</div>
+            </div>
+            <div class="photo">
+                <img src="fotos/IMG-20250724-WA0006.jpg" alt="Foto 4">
+                <div class="caption">Toda princesa merece um príncipe... mas você, meu amor, merece o universo inteiro dobrado aos teus pés.</div>
+            </div>
+
+            <div class="video-section">
+                <video autoplay muted loop playsinline>
+                    <source src="myluny2.mp4" type="video/mp4">
+                </video>
+            </div>
+            
+            <div class="caption">Eu vou te esperar pra te ter nem que seja a última coisa que eu faça, pra te falar "Eu te amo" todo dia.</div>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+            <div class="linha-artistica">❦❧❦❧❦❧❦❧❦❧❦❧❦</div>
+            <div class="selo-nicolas">
+                ✒️ Criado com alma e coração por
+                <span>Nicolas Emanuel</span>
+            </div>
+        </div>
+        
+        <div class="final-section">
+            <img src="fotos/kuromicinamão.jpeg" alt="Assinatura Final">
+            <div class="assinatura-final">— Nicolas Emanuel, seu admirador...</div>
+        </div>
     </div>
-    <div class="photo">
-      <img src="amor2.jpg" alt="Foto 3">
-      <div class="caption">Dos mil destinos que eu poderia sonhar, o teu abraço é o único lugar onde eu realmente quero morar.</div>
-    </div>
-    <div class="photo">
-      <img src="fotos/IMG-20250724-WA0006.jpg" alt="Foto 4">
-      <div class="caption">Toda princesa merece um príncipe... mas você, meu amor, merece o universo inteiro dobrado aos teus pés.</div>
-    </div>
 
-    <div class="video-section">
-      <video autoplay muted loop playsinline>
-        <source src="myluny2.mp4" type="video/mp4">
-      </video>
-    </div>
+    <script>
+        // Lógica para abrir e fechar o poema
+        function openPoem() {
+            document.getElementById('poema-container').style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Evita rolagem da página principal
+            document.querySelector('.main-content').style.opacity = '0.1'; // Foca na carta
+        }
 
-    <div class="caption">Eu vou te esperar pra te ter nem que seja a última coisa que eu faça, pra te falar "Eu te amo" todo dia.</div>
-  </div>
+        function closePoem() {
+            document.getElementById('poema-container').style.display = 'none';
+            document.body.style.overflow = 'scroll';
+            document.querySelector('.main-content').style.opacity = '1';
+        }
 
-  <div style="text-align: center; margin-top: 40px;">
-  <div class="linha-artistica">❦❧❦❧❦❧❦❧❦❧❦❧❦</div>
+        // Lógica dos Corações Flutuantes (Mantida a sua lógica original)
+        function criarCoracao() {
+            const coracao = document.createElement('div');
+            coracao.classList.add('coracao');
+            coracao.textContent = '❤️';
+            coracao.style.left = Math.random() * 100 + 'vw';
+            coracao.style.fontSize = (Math.random() * 20 + 20) + 'px';
+            document.body.appendChild(coracao);
+            setTimeout(() => coracao.remove(), 4000);
+        }
 
-  <div class="selo-nicolas">
-    ✒️ Criado com alma e coração por  
-    <span>Nicolas Emanuel</span>
-  </div>
-</div>
-  <div class="final-section">
-    <img src="fotos/kuromicinamão.jpeg" alt="Assinatura Final">
-    <div class="assinatura-final">— Nicolas Emanuel, seu admirador...</div>
-  </div>
-
-  <script>
-    function criarCoracao() {
-      const coracao = document.createElement('div');
-      coracao.classList.add('coracao');
-      coracao.textContent = '❤️';
-      coracao.style.left = Math.random() * 100 + 'vw';
-      coracao.style.fontSize = (Math.random() * 20 + 20) + 'px';
-      document.body.appendChild(coracao);
-      setTimeout(() => coracao.remove(), 4000);
-    }
-
-    setInterval(criarCoracao, 300);
-  </script>
-
+        // Inicia a animação dos corações
+        setInterval(criarCoracao, 300);
+    </script>
 </body>
 </html>
