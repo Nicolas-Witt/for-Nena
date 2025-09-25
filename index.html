@@ -1,319 +1,336 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para Nena — A Melhor Pessoa Para Mim</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@300;400;700&family=Marck+Script&display=swap" rel="stylesheet">
-    <style>
-        /* ------------------------------------------- */
-        /* 1. ESTILOS GERAIS: MENOS POLUIÇÃO E CORES GHIBLI */
-        /* ------------------------------------------- */
-        :root {
-            /* Cores Ghibli: Ethereal/Naturais */
-            --color-light-bg: #f8fcf7; /* Fundo muito claro, quase branco */
-            --color-bg-gradient-start: #eaf6f7; /* Azul/Verde pastel suave */
-            --color-bg-gradient-end: #f5e9f3;   /* Rosa/Roxo pastel suave */
-            --color-accent-ghibli: #4f806d;    /* Verde Musgo */
-            --color-text-dark: #333333;
-            --color-primary-romantic: #cc6699; /* Rosa/Roxo para toques principais */
-        }
-        body {
-            /* Fundo suave e etéreo */
-            background: linear-gradient(to bottom right, var(--color-bg-gradient-start), var(--color-bg-gradient-end));
-            font-family: 'Quicksand', sans-serif;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-            color: var(--color-text-dark);
-            transition: background 0.5s;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para Nena — A Melhor Pessoa Para Mim</title>
 
-        /* ANIMAÇÃO DE CORAÇÕES FLUTUANTES */
-        .coracao {
-            position: fixed;
-            animation: subir 4s linear forwards;
-            font-size: 30px;
-            color: var(--color-primary-romantic); /* Coração no tema */
-            pointer-events: none;
-            z-index: 9999;
-        }
-        @keyframes subir {
-            0% { bottom: 0; opacity: 1; transform: translateY(0) rotate(0deg); }
-            100% { bottom: 100vh; opacity: 0; transform: translateY(-100vh) rotate(30deg); }
-        }
+  <!-- Fontes -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@300;400;700&family=Marck+Script&display=swap" rel="stylesheet">
 
-        h1, h2 {
-            font-family: 'Great Vibes', cursive;
-            text-align: center;
-            color: var(--color-primary-romantic);
-            font-size: 2.4rem;
-            line-height: 1.4;
-            text-shadow: none; /* Removed shadow */
-        }
-        .assinatura-topo {
-            /* ... (Manutenção do seu estilo) ... */
-            color: var(--color-primary-romantic);
-        }
-        .intro {
-            font-size: 1.4rem; /* Um pouco menor para ser mais sutil */
-            color: var(--color-text-dark);
-        }
+  <style>
+    :root {
+      --color-bg-start: #eaf6f7;
+      --color-bg-end: #f5e9f3;
+      --color-accent: #4f806d;
+      --color-romantic: #cc6699;
+      --color-dark: #333;
+    }
 
-        /* ------------------------------------------- */
-        /* 2. LAYOUT E CONTEÚDO */
-        /* ------------------------------------------- */
-        .main-content {
-            max-width: 1000px;
-            margin: 0 auto; /* Centraliza tudo */
-            padding: 20px;
-        }
-        .gallery {
-            /* ... (Seu estilo original mantido) ... */
-        }
-        .photo img {
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Sombra mais leve */
-        }
-        .caption {
-            font-size: 1.6rem; /* Ajustado */
-            color: var(--color-text-dark); /* Texto mais neutro */
-            font-family: 'Marck Script', cursive; /* Nova fonte para legenda */
-        }
-        .music-button {
-            text-align: center;
-            margin-bottom: 0; /* Espaço ajustado para o vídeo */
-        }
-        .music-button button {
-             background-color: var(--color-accent-ghibli);
-             transition: background-color 0.3s ease, transform 0.1s;
-        }
-        .music-button button:hover {
-             background-color: #3b6655; /* Cor mais escura para o hover */
-        }
-        
-        /* NOVO: Estilo para o vídeo "Hex" */
-        .video-hex-container {
-            text-align: center;
-            margin: 10px 0 30px; /* Margem após o vídeo */
-        }
-        .video-hex-container video {
-            width: 100%;
-            max-width: 300px; /* Pequeno e discreto */
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(to bottom right, var(--color-bg-start), var(--color-bg-end));
+      color: var(--color-dark);
+      overflow-x: hidden;
+    }
 
-        /* ------------------------------------------- */
-        /* 3. CARTA E IMAGEM BADTZ/KUROMI */
-        /* ------------------------------------------- */
-        #caixa-carta {
-            /* Mantido o tamanho */
-            background: #fffefb; /* Papel suave */
-            border: 3px solid var(--color-accent-ghibli);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra mais suave */
-            margin-bottom: 30px; /* Mais espaço para a imagem abaixo */
-        }
-        #caixa-carta::before {
-            content: '🌸🍄\A CARTA MÁGICA DE TOTORO \A (CLIQUE PARA ABRIR)';
-            white-space: pre-wrap;
-            font-size: 1.3rem;
-            color: var(--color-accent-ghibli);
-            font-weight: 700;
-            line-height: 1.5;
-        }
-        
-        /* NOVO: Imagem Badtz-Maru/Kuromi */
-        .badtz-kuromi-image {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        .badtz-kuromi-image img {
-            max-width: 250px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
+    h1, h2 {
+      font-family: 'Great Vibes', cursive;
+      text-align: center;
+      color: var(--color-romantic);
+    }
 
-        /* ------------------------------------------- */
-        /* 4. POEMA EXPANDIDO (MODAL) */
-        /* ------------------------------------------- */
-        .poema-carta {
-            background-color: #fffefb; /* Papel pergaminho */
-            box-shadow: 0 0 30px rgba(204, 102, 153, 0.3); /* Brilho suave */
-        }
-        .poema-carta p {
-            font-size: 1.15rem; /* Um pouco menor para caber melhor */
-            text-align: left; /* Alinhamento justificado é melhor para poemas */
-        }
-        .poema-assinatura {
-            font-size: 2rem;
-            color: var(--color-primary-romantic);
-        }
-        /* ... (O restante do CSS do modal foi mantido) ... */
-    </style>
+    .main-content {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .assinatura-topo {
+      text-align: center;
+      color: var(--color-romantic);
+      margin-bottom: 20px;
+    }
+
+    /* Botão de música */
+    .music-button {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .music-button button {
+      background: var(--color-accent);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .music-button button:hover {
+      background: #3b6655;
+    }
+
+    /* Vídeo Hex */
+    .video-hex-container {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .video-hex-container video {
+      max-width: 300px;
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+
+    /* Caixa Carta */
+    #caixa-carta {
+      background: #fffefb;
+      border: 2px solid var(--color-accent);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 20px;
+      margin: 30px auto;
+      max-width: 400px;
+      text-align: center;
+      font-weight: bold;
+      color: var(--color-accent);
+      cursor: pointer;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+    #caixa-carta:hover {
+      background: #f8fcf7;
+      transform: scale(1.02);
+    }
+
+    /* Imagem Kuromi */
+    .badtz-kuromi-image {
+      text-align: center;
+      margin: 30px 0;
+    }
+    .badtz-kuromi-image img {
+      max-width: 220px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    /* Poema (Modal) */
+    #poema-container {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      z-index: 1000;
+    }
+    .poema-carta {
+      background: #fffefb;
+      padding: 30px;
+      max-width: 700px;
+      max-height: 90vh;
+      overflow-y: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 30px rgba(204, 102, 153, 0.3);
+      font-family: 'Marck Script', cursive;
+      line-height: 1.8;
+    }
+    .poema-carta h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+    .poema-carta p {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+    }
+    .poema-assinatura {
+      text-align: right;
+      font-size: 1.6rem;
+      color: var(--color-romantic);
+      margin-top: 20px;
+    }
+    #close-button {
+      position: absolute;
+      top: 20px; right: 30px;
+      background: var(--color-romantic);
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    /* Animação de Corações */
+    .coracao {
+      position: fixed;
+      animation: subir 4s linear forwards;
+      font-size: 30px;
+      pointer-events: none;
+      z-index: 9999;
+    }
+    @keyframes subir {
+      0% { bottom: 0; opacity: 1; }
+      100% { bottom: 100vh; opacity: 0; }
+    }
+
+    /* Galeria */
+    .gallery {
+      margin-top: 40px;
+    }
+    .photo {
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    .photo img {
+      max-width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .caption {
+      font-family: 'Marck Script', cursive;
+      font-size: 1.3rem;
+      margin-top: 10px;
+    }
+
+    /* Final */
+    .final-section {
+      text-align: center;
+      margin: 40px 0;
+    }
+    .final-section img {
+      max-width: 180px;
+    }
+    .assinatura-final {
+      font-family: 'Great Vibes', cursive;
+      font-size: 1.5rem;
+      margin-top: 10px;
+      color: var(--color-romantic);
+    }
+  </style>
 </head>
 <body>
-    
-    <div id="poema-container" onclick="closePoem()">
-        <div class="poema-carta" onclick="event.stopPropagation()">
-            <button id="close-button" onclick="closePoem()">X</button>
-            <h2>A Poesia do Tempo em Nossa Amizade</h2>
-            
-            <p>
-                Minha parceira, conselheira, e amiga mais leal,<br>
-                O tempo em seu perdão me diz que tudo é igual.<br>
-                Se houve um deslize, um tropeço no caminho,<br>
-                Sei que a estrada é nossa, e sigo o seu carinho.<br>
-                Não mais a sombra, mas a luz que você me deu,<br>
-                A reconciliação completa que em seu peito nasceu.<br>
-                Obrigado por ser o farol que me faz recordar<br>
-                Que o laço da nossa amizade não há como quebrar.
-            </p>
-            <p>
-                Sua força não é de ferro, mas de um coração que encanta,<br>
-                Você é única, a canção que a vida não canta.<br>
-                Lá no vale escuro, onde o medo parecia reinar,<br>
-                Você foi a flauta mágica que me ensinou a sonhar.<br>
-                É a quietude da floresta que só o **Totoro** traz,<br>
-                A gigante e gentil presença que me devolve a paz.<br>
-                Nosso afeto é como a lealdade de Jiji por Kiki,<br>
-                Um companheirismo leve que ignora qualquer bico.<br>
-                Pois é ao seu lado que eu encontro, sem buscar,<br>
-                A bússola para o futuro, o porto para ancorar.
-            </p>
-            <p>
-                Em você vejo a coragem serena da jovem Chihiro,<br>
-                Que não esquece quem é, mesmo no mais febril suspiro.<br>
-                É a esperança que floresce, como os jardins de Laputa,<br>
-                Um tesouro guardado em cada longa e doce disputa.<br>
-                Minha admiração é imensa, o amor de irmão que me guia,<br>
-                Pela pessoa forte e única que você é todo dia.<br>
-                E o meu afeto por ti, que sempre te envolve e te chama,<br>
-                É o abraço de **Haku** que redescobre a chama.
-            </p>
-            <p>
-                Que a força do nosso *sempre* apague qualquer vestígio,<br>
-                Deixe o tempo fluir, e firme o nosso prestígio.<br>
-                Você é a voz que acalma, a chama que não se apaga,<br>
-                A amizade de uma vida, a história que não se indaga.<br>
-                Obrigado por tudo, por ser quem você é e sempre foi,<br>
-                Meu carinho é **eterno, um amor que não é temporário**, hoje e depois.
-            </p>
-            <div class="poema-assinatura">— Seu Admirador, Nícolas.</div>
-        </div>
+
+  <!-- Modal do Poema -->
+  <div id="poema-container" onclick="closePoem()">
+    <div class="poema-carta" onclick="event.stopPropagation()">
+      <button id="close-button" onclick="closePoem()">X</button>
+      <h2>A Poesia do Tempo em Nossa Amizade</h2>
+
+      <p>Minha parceira, conselheira, e amiga mais leal,<br>
+      O tempo em seu perdão me diz que tudo é igual.<br>
+      Se houve um deslize, um tropeço no caminho,<br>
+      Sei que a estrada é nossa, e sigo o seu carinho.<br>
+      Não mais a sombra, mas a luz que você me deu,<br>
+      A reconciliação completa que em seu peito nasceu.<br>
+      Obrigado por ser o farol que me faz recordar<br>
+      Que o laço da nossa amizade não há como quebrar.</p>
+
+      <p>Sua força não é de ferro, mas de um coração que encanta,<br>
+      Você é única, a canção que a vida não canta.<br>
+      Lá no vale escuro, onde o medo parecia reinar,<br>
+      Você foi a flauta mágica que me ensinou a sonhar.<br>
+      É a quietude da floresta que só o Totoro traz,<br>
+      A gigante e gentil presença que me devolve a paz.<br>
+      Nosso afeto é como a lealdade de Jiji por Kiki,<br>
+      Um companheirismo leve que ignora qualquer bico.<br>
+      Pois é ao seu lado que eu encontro, sem buscar,<br>
+      A bússola para o futuro, o porto para ancorar.</p>
+
+      <p>Em você vejo a coragem serena da jovem Chihiro,<br>
+      Que não esquece quem é, mesmo no mais febril suspiro.<br>
+      É a esperança que floresce, como os jardins de Laputa,<br>
+      Um tesouro guardado em cada longa e doce disputa.<br>
+      Minha admiração é imensa, o amor de irmão que me guia,<br>
+      Pela pessoa forte e única que você é todo dia.<br>
+      E o meu afeto por ti, que sempre te envolve e te chama,<br>
+      É o abraço de Haku que redescobre a chama.</p>
+
+      <p>Que a força do nosso sempre apague qualquer vestígio,<br>
+      Deixe o tempo fluir, e firme o nosso prestígio.<br>
+      Você é a voz que acalma, a chama que não se apaga,<br>
+      A amizade de uma vida, a história que não se indaga.<br>
+      Obrigado por tudo, por ser quem você é e sempre foi,<br>
+      Meu carinho é eterno, um amor que não é temporário, hoje e depois.</p>
+
+      <div class="poema-assinatura">— Seu Admirador, Nícolas.</div>
+    </div>
+  </div>
+
+  <!-- Conteúdo principal -->
+  <div class="main-content">
+
+    <div class="assinatura-topo">Feito com amor por Nícolas - Seu bobão</div>
+
+    <div class="music-button">
+      <button onclick="document.getElementById('musica').play()">🎵 Tocar Música</button>
+    </div>
+    <audio id="musica" loop>
+      <source src="hex-80purppp.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="video-hex-container">
+      <video autoplay muted loop playsinline>
+        <source src="hex.mp4" type="video/mp4">
+      </video>
     </div>
 
-    <div class="main-content">
-        <div class="assinatura-topo">
-            Feito com amor por Nícolas - Seu bobão
-        </div>
+    <h1>A oitava maravilha do planeta se faz em pessoa...</h1>
+    <h1>De um admirador, para meu amor: My Luny...</h1>
 
-        <div class="music-button">
-            <button onclick="document.getElementById('musica').play()">🎵 Tocar Música</button>
-        </div>
-        
-        <audio id="musica" loop>
-            <source src="hex-80purppp.mp3" type="audio/mpeg">
-        </audio>
-        
-        <div class="video-hex-container">
-            <video autoplay muted loop playsinline>
-                <source src="hex.mp4" type="video/mp4">
-            </video>
-        </div>
-
-
-        <h1>A oitava maravilha do planeta se faz em pessoa...</h1>
-        <h1>De um admirador, para meu amor: My Luny...</h1>
-
-        <div class="intro">
-            "Você é mais que beleza, é poesia viva em cada detalhe."
-        </div>
-
-        <div id="caixa-carta" onclick="openPoem()">
-            </div>
-        
-        <div class="badtz-kuromi-image">
-            <img src="badtz_kuromi.jpg" alt="Kuromi recebendo uma flor de Badtz-Maru">
-        </div>
-
-        <div class="gallery">
-            <div class="photo">
-                <img src="fotos/conheci.jpg" alt="Foto 1">
-                <div class="caption">Desde o instante que te conheci, meu coração se aqueceu. Obrigado por existir e permitir que eu faça da tua vida um poema de amor. Eu te amo...</div>
-            </div>
-            <div class="photo">
-                <img src="fotos/IMG-20250724-WA0004.jpg" alt="Foto 2">
-                <div class="caption">Toda vez que mergulho no brilho dos teus olhos, minha alma dança. Você é minha luz em meio a qualquer escuridão. Eu te amo garota, quero passar o resto da minha vida com tu...</div>
-            </div>
-            <div class="photo">
-                <img src="amor2.jpg" alt="Foto 3">
-                <div class="caption">Dos mil destinos que eu poderia sonhar, o teu abraço é o único lugar onde eu realmente quero morar.</div>
-            </div>
-            <div class="photo">
-                <img src="fotos/IMG-20250724-WA0006.jpg" alt="Foto 4">
-                <div class="caption">Toda princesa merece um príncipe... mas você, meu amor, merece o universo inteiro dobrado aos teus pés.</div>
-            </div>
-
-            <div class="video-section">
-                <video autoplay muted loop playsinline>
-                    <source src="myluny2.mp4" type="video/mp4">
-                </video>
-            </div>
-            
-            <div class="caption">Eu vou te esperar pra te ter nem que seja a última coisa que eu faça, pra te falar "Eu te amo" todo dia.</div>
-        </div>
-
-        <div style="text-align: center; margin-top: 40px;">
-            <div class="linha-artistica">❦❧❦❧❦❧❦❧❦❧❦❧❦</div>
-            <div class="selo-nicolas">
-                ✒️ Criado com alma e coração por
-                <span>Nicolas Emanuel</span>
-            </div>
-        </div>
-        
-        <div class="final-section">
-            <img src="kuromi1.jpg" alt="Assinatura Final">
-            <div class="assinatura-final">— Nicolas Emanuel, seu admirador...</div>
-        </div>
+    <div class="intro" style="text-align:center; font-size:1.2rem; margin:15px 0;">
+      "Você é mais que beleza, é poesia viva em cada detalhe."
     </div>
 
-    <script>
-        // Lógica para abrir e fechar o poema
-        function openPoem() {
-            document.getElementById('poema-container').style.display = 'block';
-            document.body.style.overflow = 'hidden'; 
-            document.querySelector('.main-content').style.opacity = '0.1'; 
-        }
+    <div id="caixa-carta" onclick="openPoem()">
+      🌸🍄 CARTA MÁGICA DE TOTORO (Clique para abrir)
+    </div>
 
-        function closePoem() {
-            document.getElementById('poema-container').style.display = 'none';
-            document.body.style.overflow = 'scroll';
-            document.querySelector('.main-content').style.opacity = '1';
-        }
+    <div class="badtz-kuromi-image">
+      <img src="badtz_kuromi.jpg" alt="Kuromi recebendo uma flor de Badtz-Maru">
+    </div>
 
-        // Lógica dos Corações Flutuantes
-        function criarCoracao() {
-            const coracao = document.createElement('div');
-            coracao.classList.add('coracao');
-            // Alterado para incluir flor e Totoro, mantendo o coração
-            const emojis = ['❤️', '🌸', '🍄']; 
-            coracao.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-            
-            // Adicionado variação na cor para o emoji de coração
-            if (coracao.textContent === '❤️') {
-                 coracao.style.color = '#cc6699';
-            } else {
-                 coracao.style.color = 'inherit'; // Usa a cor padrão do emoji
-            }
+    <!-- Galeria -->
+    <div class="gallery">
+      <div class="photo">
+        <img src="fotos/conheci.jpg" alt="Foto 1">
+        <div class="caption">Desde o instante que te conheci, meu coração se aqueceu...</div>
+      </div>
+      <div class="photo">
+        <img src="fotos/IMG-20250724-WA0004.jpg" alt="Foto 2">
+        <div class="caption">Toda vez que mergulho no brilho dos teus olhos, minha alma dança...</div>
+      </div>
+      <div class="photo">
+        <img src="amor2.jpg" alt="Foto 3">
+        <div class="caption">Dos mil destinos que eu poderia sonhar, o teu abraço é o único lugar...</div>
+      </div>
+      <div class="photo">
+        <img src="fotos/IMG-20250724-WA0006.jpg" alt="Foto 4">
+        <div class="caption">Toda princesa merece um príncipe... mas você merece o universo inteiro.</div>
+      </div>
+    </div>
 
-            coracao.style.left = Math.random() * 100 + 'vw';
-            coracao.style.fontSize = (Math.random() * 20 + 20) + 'px';
-            document.body.appendChild(coracao);
-            setTimeout(() => coracao.remove(), 4000);
-        }
+    <div class="final-section">
+      <img src="kuromi1.jpg" alt="Assinatura Final">
+      <div class="assinatura-final">— Nicolas Emanuel, seu admirador...</div>
+    </div>
+  </div>
 
-        // Inicia a animação dos corações
-        setInterval(criarCoracao, 300);
-    </script>
+  <script>
+    function openPoem() {
+      document.getElementById('poema-container').style.display = 'flex';
+    }
+    function closePoem() {
+      document.getElementById('poema-container').style.display = 'none';
+    }
+
+    // Corações flutuantes
+    function criarCoracao() {
+      const coracao = document.createElement('div');
+      coracao.classList.add('coracao');
+      const emojis = ['❤️','🌸','🍄'];
+      coracao.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      coracao.style.left = Math.random() * 100 + 'vw';
+      coracao.style.fontSize = (Math.random() * 20 + 20) + 'px';
+      document.body.appendChild(coracao);
+      setTimeout(() => coracao.remove(), 4000);
+    }
+    setInterval(criarCoracao, 400);
+  </script>
 </body>
 </html>
