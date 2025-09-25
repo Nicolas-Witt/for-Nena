@@ -1,229 +1,308 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para Nena — A Melhor Pessoa Para Mim</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Nena — A Melhor Pessoa Para Mim</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@300;400;700&family=Marck+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@300;400;700&family=Marck+Script&display=swap" rel="stylesheet">
 
-    <style>
-        :root {
-            --color-bg-start: #eaf6f7;
-            --color-bg-end: #f5e9f3;
-            --color-accent: #4f806d;
-            --color-romantic: #cc6699;
-            --color-dark: #333;
-            --color-light-paper: #fffefb;
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Quicksand', sans-serif;
-            background: linear-gradient(to bottom right, var(--color-bg-start), var(--color-bg-end));
-            color: var(--color-dark);
-            overflow-x: hidden;
-        }
-
-        .main-content {
-            max-width: 1000px;
-            margin: auto;
-            padding: 20px 10px;
-        }
-
-        h1, h2 {
-            font-family: 'Great Vibes', cursive;
-            text-align: center;
-            color: var(--color-romantic);
-            line-height: 1.2;
-        }
-
-        /* ------------------------------------------- */
-        /* ESTILOS TOPO E RODAPÉ (Solicitado) */
-        /* ------------------------------------------- */
-        .header-nicolas, .footer-nicolas {
-            text-align: center;
-            padding: 15px 0;
-            background-color: rgba(255, 255, 255, 0.5); /* Fundo sutil */
-            border-top: 1px solid var(--color-accent); /* Linha suave */
-        }
-
-        .header-nicolas {
-            border-bottom: 1px solid var(--color-accent);
-            margin-bottom: 20px;
-            color: var(--color-romantic);
-            font-weight: 700;
-        }
-
-        .footer-nicolas {
-            margin-top: 40px;
-            border-bottom: 1px solid var(--color-accent);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .footer-nicolas img {
-            max-width: 100px; /* Imagem Kuromi menor */
-            margin-bottom: 5px;
-        }
-
-        .assinatura-final-footer {
-            font-family: 'Great Vibes', cursive;
-            font-size: 1.8rem;
-            color: var(--color-romantic);
-        }
-
-        /* ------------------------------------------- */
-        /* DIVISORES E COMPONENTES (Mantidos e Ajustados) */
-        /* ------------------------------------------- */
-
-        .section-divider {
-            border: none;
-            height: 2px;
-            background: linear-gradient(to right, transparent, var(--color-accent), transparent);
-            margin: 40px auto;
-            width: 80%;
-        }
-
-        .section-divider.soft {
-            height: 1px;
-            margin: 20px auto;
-            background: linear-gradient(to right, transparent, rgba(79, 128, 109, 0.5), transparent);
-        }
-
-        .video-hex-container video { max-width: 300px; width: 90%; }
-        .badtz-kuromi-image img { max-width: 220px; width: 100%; }
-
-        /* Ajuste para o texto da galeria com várias linhas */
-        .gallery { margin-top: 40px; }
-        .photo {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 40px;
-        }
-        .photo img { max-width: 90%; height: auto; }
-        .caption-group {
-            max-width: 90%;
-            text-align: center;
-            font-family: 'Marck Script', cursive;
-            font-size: 1.3rem;
-            margin-top: 10px;
-        }
-        /* Estilo para cada legenda individual */
-        .caption-group p {
-            margin: 5px 0;
+    <style>
+        :root {
+            --color-bg-start: #eaf6f7;
+            --color-bg-end: #f5e9f3;
+            --color-accent: #4f806d;
+            --color-romantic: #cc6699;
+            --color-dark: #333;
+            --color-light-paper: #fffefb;
         }
 
-        /* Estilos do Modal (Poema) */
-        #poema-container { display: none; }
-        .poema-carta { animation: cartaLivro 1s ease; }
-        /* ... (Restante do CSS do Modal mantido) ... */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(to bottom right, var(--color-bg-start), var(--color-bg-end));
+            color: var(--color-dark);
+            overflow-x: hidden;
+        }
 
-    </style>
+        .main-content {
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px 10px;
+        }
+
+        h1, h2 {
+            font-family: 'Great Vibes', cursive;
+            text-align: center;
+            color: var(--color-romantic);
+            line-height: 1.2;
+        }
+
+        .section-divider {
+            border: none;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--color-accent), transparent);
+            margin: 40px auto;
+            width: 80%;
+        }
+
+        .section-divider.soft {
+            height: 1px;
+            margin: 20px auto;
+            background: linear-gradient(to right, transparent, rgba(79, 128, 109, 0.5), transparent);
+        }
+
+        .video-hex-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .video-hex-container video {
+            max-width: 300px;
+            width: 90%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        #caixa-carta {
+            background: var(--color-light-paper);
+            border: 2px solid var(--color-accent);
+            max-width: 300px;
+            margin: 30px auto;
+            padding: 20px;
+            white-space: pre-wrap;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .badtz-kuromi-image {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .badtz-kuromi-image img {
+            max-width: 220px;
+            width: 100%;
+        }
+
+        .gallery {
+            margin-top: 40px;
+        }
+        .photo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        .photo img {
+            max-width: 90%;
+            height: auto;
+        }
+        .caption {
+            max-width: 90%;
+            text-align: center;
+        }
+
+        /* 🔹 A carta começa escondida */
+        #poema-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        /* 🔹 Nova animação estilo livro */
+        @keyframes cartaLivro {
+            0% {
+                transform: perspective(1200px) rotateY(-90deg);
+                opacity: 0;
+            }
+            60% {
+                transform: perspective(1200px) rotateY(15deg);
+                opacity: 1;
+            }
+            100% {
+                transform: perspective(1200px) rotateY(0deg);
+            }
+        }
+
+        .poema-carta {
+            background: var(--color-light-paper);
+            border: 3px solid var(--color-accent);
+            border-radius: 12px;
+            padding: 30px 25px;
+            max-width: 650px;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+            font-family: 'Marck Script', cursive;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: var(--color-dark);
+            position: relative;
+            animation: cartaLivro 1s ease;
+        }
+
+        #close-button {
+            background: var(--color-romantic);
+            border: none;
+            color: white;
+            font-size: 1rem;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            float: right;
+        }
+
+        .coracao {
+            position: fixed;
+            animation: subir 4s linear forwards;
+            font-size: 30px;
+            pointer-events: none;
+            z-index: 9999;
+        }
+        @keyframes subir {
+            0% { bottom: 0; opacity: 1; transform: translateY(0); }
+            100% { bottom: 100vh; opacity: 0; transform: translateY(-100vh); }
+        }
+    </style>
 </head>
 <body>
 
-        <div id="poema-container" onclick="closePoem()">
-        <div class="poema-carta" onclick="event.stopPropagation()">
-            <button id="close-button" onclick="closePoem()">X</button>
-            <h2>A Poesia do Tempo em Nossa Amizade</h2>
-            <p>Minha parceira, conselheira, e amiga mais leal,<br>O tempo em seu perdão me diz que tudo é igual.<br>Se houve um deslize, um tropeço no caminho,<br>Sei que a estrada é nossa, e sigo o seu carinho.<br>Não mais a sombra, mas a luz que você me deu,<br>A reconciliação completa que em seu peito nasceu.<br>Obrigado por ser o farol que me faz recordar<br>Que o laço da nossa amizade não há como quebrar.</p>
-            <p>Sua força não é de ferro, mas de um coração que encanta,<br>Você é única, a canção que a vida não canta.<br>Lá no vale escuro, onde o medo parecia reinar,<br>Você foi a flauta mágica que me ensinou a sonhar.<br>É a quietude da floresta que só o Totoro traz,<br>A gigante e gentil presença que me devolve a paz.<br>Nosso afeto é como a lealdade de Jiji por Kiki,<br>Um companheirismo leve que ignora qualquer bico.<br>Pois é ao seu lado que eu encontro, sem buscar,<br>A bússola para o futuro, o porto para ancorar.</p>
-            <p>Em você vejo a coragem serena da jovem Chihiro,<br>Que não esquece quem é, mesmo no mais febril suspiro.<br>É a esperança que floresce, como os jardins de Laputa,<br>Um tesouro guardado em cada longa e doce disputa.<br>Minha admiração é imensa, o amor de irmão que me guia,<br>Pela pessoa forte e única que você é todo dia.<br>E o meu afeto por ti, que sempre te envolve e te chama,<br>É o abraço de Haku que redescobre a chama.</p>
-            <p>Que a força do nosso sempre apague qualquer vestígio,<br>Deixe o tempo fluir, e firme o nosso prestígio.<br>Você é a voz que acalma, a chama que não se apaga,<br>A amizade de uma vida, a história que não se indaga.<br>Obrigado por tudo, por ser quem você é e sempre foi,<br>Meu carinho é eterno, um amor que não é temporário, hoje e depois.</p>
-            <div class="poema-assinatura"> — Seu Pochacco, Nícolas.</div>
-        </div>
-    </div>
+    <!-- 🔹 MODAL escondido -->
+    <div id="poema-container" onclick="closePoem()">
+        <div class="poema-carta" onclick="event.stopPropagation()">
+            <button id="close-button" onclick="closePoem()">X</button>
+            <h2>A Poesia do Tempo em Nossa Amizade</h2>
 
-        <header class="header-nicolas">
-        Feito com Carinho por Nícolas - Seu bobão
-    </header>
+            <p>Minha parceira, conselheira, e amiga mais leal,<br>
+            O tempo em seu perdão me diz que tudo é igual.<br>
+            Se houve um deslize, um tropeço no caminho,<br>
+            Sei que a estrada é nossa, e sigo o seu carinho.<br>
+            Não mais a sombra, mas a luz que você me deu,<br>
+            A reconciliação completa que em seu peito nasceu.<br>
+            Obrigado por ser o farol que me faz recordar<br>
+            Que o laço da nossa amizade não há como quebrar.</p>
 
-        <div class="main-content">
+            <p>Sua força não é de ferro, mas de um coração que encanta,<br>
+            Você é única, a canção que a vida não canta.<br>
+            Lá no vale escuro, onde o medo parecia reinar,<br>
+            Você foi a flauta mágica que me ensinou a sonhar.<br>
+            É a quietude da floresta que só o Totoro traz,<br>
+            A gigante e gentil presença que me devolve a paz.<br>
+            Nosso afeto é como a lealdade de Jiji por Kiki,<br>
+            Um companheirismo leve que ignora qualquer bico.<br>
+            Pois é ao seu lado que eu encontro, sem buscar,<br>
+            A bússola para o futuro, o porto para ancorar.</p>
 
-        <div class="music-button">
-            <button onclick="document.getElementById('musica').play()">🎵 Tocar Música</button>
-        </div>
-        <audio id="musica" loop>
-            <source src="hex-80purppp.mp3" type="audio/mpeg">
-        </audio>
+            <p>Em você vejo a coragem serena da jovem Chihiro,<br>
+            Que não esquece quem é, mesmo no mais febril suspiro.<br>
+            É a esperança que floresce, como os jardins de Laputa,<br>
+            Um tesouro guardado em cada longa e doce disputa.<br>
+            Minha admiração é imensa, o amor de irmão que me guia,<br>
+            Pela pessoa forte e única que você é todo dia.<br>
+            E o meu afeto por ti, que sempre te envolve e te chama,<br>
+            É o abraço de Haku que redescobre a chama.</p>
 
-        <div class="video-hex-container">
-            <video autoplay muted loop playsinline>
-                <source src="hex.mp4" type="video/mp4">
-            </video>
-        </div>
-        
-        <hr class="section-divider soft">
+            <p>Que a força do nosso sempre apague qualquer vestígio,<br>
+            Deixe o tempo fluir, e firme o nosso prestígio.<br>
+            Você é a voz que acalma, a chama que não se apaga,<br>
+            A amizade de uma vida, a história que não se indaga.<br>
+            Obrigado por tudo, por ser quem você é e sempre foi,<br>
+            Meu carinho é eterno, um amor que não é temporário, hoje e depois.</p>
 
-        <h1>Espero que goste eu me enpenhei no poema...</h1>
-        <h1>De seu AMIGO, para minha AMIGA :></h1>
+            <div class="poema-assinatura"> — Seu Pochacco, Nícolas.</div>
+        </div>
+    </div>
 
-        <div class="intro" style="text-align:center; font-size:1.2rem; margin:15px 0;">
-            "Tenha certeza que esse não vai ser o único aniversario seu que estarei contigo, demais, existe demais pra frente
-            que estaremos juntos."
-        </div>
-        
-        <hr class="section-divider">
+    <div class="main-content">
+        <div class="assinatura-topo">Feito com Carinho por Nícolas - Seu bobão</div>
 
-        <div id="caixa-carta" onclick="openPoem()">
-            🌸🍄 CARTA MÁGICA DO SEU TOTORO (Clique para abrir bobona)
-        </div>
+        <div class="music-button">
+            <button onclick="document.getElementById('musica').play()">🎵 Tocar Música</button>
+        </div>
+        <audio id="musica" loop>
+            <source src="hex-80purppp.mp3" type="audio/mpeg">
+        </audio>
 
-        <div class="badtz-kuromi-image">
-            <img src="badtz_kuromi.jpg" alt="Kuromi recebendo uma flor de Badtz-Maru">
-        </div>
-        
-        <hr class="section-divider">
+        <div class="video-hex-container">
+            <video autoplay muted loop playsinline>
+                <source src="hex.mp4" type="video/mp4">
+            </video>
+        </div>
+        
+        <hr class="section-divider soft">
 
-                <div class="gallery">
-            <div class="photo">
-                <img src="nena.jpg" alt="Foto da Nena">
-                <div class="caption-group">
-                    <p>Eu vou dizer mais coisas pessoalmene um dia...</p>
-                    <p>"You're the thing that connects my brain to my chest, it's because - "</p>
-                    <p>"I pray that I'll die before my favorite - "</p>
-                    <p>"I'll stay at your house where I'll hope that you'll protect me - "</p>
-                </div>
-            </div>
-        </div>
-    </div>
-        <footer class="footer-nicolas">
-        <img src="kuromi1.png" alt="Selo Kuromi">
-        <div class="assinatura-final-footer">
-            — Nicolas Emanuel, seu admirador...
-        </div>
-    </footer>
+        <h1>Espero que goste eu me enpenhei no poema...</h1>
+        <h1>De seu AMIGO, para minha AMIGA :></h1>
 
-    <script>
-        function openPoem() {
-            document.getElementById('poema-container').style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        }
-        function closePoem() {
-            document.getElementById('poema-container').style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
+        <div class="intro" style="text-align:center; font-size:1.2rem; margin:15px 0;">
+            "Tenha certeza que esse não vai ser o único aniversario seu que estarei contigo, demais, existe demais pra frente
+            que estaremos juntos."
+        </div>
+        
+        <hr class="section-divider">
 
-        function criarCoracao() {
-            const coracao = document.createElement('div');
-            coracao.classList.add('coracao');
-            const emojis = ['❤️','🌸','🍄'];
-            coracao.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-            if (coracao.textContent === '❤️') {
-                coracao.style.color = 'var(--color-romantic)';
-            } else {
-                coracao.style.color = 'inherit';
-            }
-            coracao.style.left = Math.random() * 100 + 'vw';
-            coracao.style.fontSize = (Math.random() * 20 + 20) + 'px';
-            document.body.appendChild(coracao);
-            setTimeout(() => coracao.remove(), 4000);
-        }
-        setInterval(criarCoracao, 400);
-    </script>
+        <!-- 🔹 BOTÃO que abre a carta -->
+        <div id="caixa-carta" onclick="openPoem()">
+            🌸🍄 CARTA MÁGICA DO SEU TOTORO (Clique para abrir bobona)
+        </div>
+
+        <div class="badtz-kuromi-image">
+            <img src="badtz_kuromi.jpg" alt="Kuromi recebendo uma flor de Badtz-Maru">
+        </div>
+        
+        <hr class="section-divider">
+
+        <div class="gallery">
+            <div class="photo">
+                <img src="nena.jpg" alt="Foto 4">
+                <div class="caption">Eu vou dizer mais coisas pessoalmene um dia...</div>
+                <div class="caption">"You're the thing that connects my brain to my chest, it's because - "</div>
+                <div class="caption">"I pray that I'll die before my favorite - "</div>
+                <div class="caption">"I'll stay at your house where I'll hope that you'll protect me - "</div>    
+            </div>
+        </div>
+        
+        <hr class="section-divider soft">
+
+        <div class="final-section">
+            <img src="kuromi1.png" alt="Assinatura Final">
+            <div class="assinatura-final">— Nicolas Emanuel, seu admirador...</div>
+        </div>
+    </div>
+
+    <script>
+        function openPoem() {
+            document.getElementById('poema-container').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        function closePoem() {
+            document.getElementById('poema-container').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function criarCoracao() {
+            const coracao = document.createElement('div');
+            coracao.classList.add('coracao');
+            const emojis = ['❤️','🌸','🍄'];
+            coracao.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+            if (coracao.textContent === '❤️') {
+                coracao.style.color = 'var(--color-romantic)';
+            } else {
+                coracao.style.color = 'inherit';
+            }
+            coracao.style.left = Math.random() * 100 + 'vw';
+            coracao.style.fontSize = (Math.random() * 20 + 20) + 'px';
+            document.body.appendChild(coracao);
+            setTimeout(() => coracao.remove(), 4000);
+        }
+        setInterval(criarCoracao, 400);
+    </script>
 </body>
 </html>
