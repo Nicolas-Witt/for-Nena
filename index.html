@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Poesia do Tempo em Nossa Amizade</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    
+    <audio id="background-music" loop>
+        <source src="hex-80purppp.mp3" type="audio/mp3">
+       
+    </audio>
+
+    <div class="book-container">
+        <div class="book">
+            
+            <div class="page cover" id="page-1">
+                <h1>A Poesia do Tempo</h1>
+                <img src="badtz_kuromi.jpg" alt="Badtz-Maru dando flor para Kuromi" class="cover-image">
+                <p class="dedicatoria-capa">Para minha única e mais especial.</p>
+                <button id="start-button" onclick="startExperience()">Abrir o Livro</button>
+            </div>
+
+            <div class="page poem-page" id="page-2">
+                <p>
+                    Minha parceira, conselheira, e amiga mais leal,<br>
+                    O tempo em seu perdão me diz que tudo é igual.<br>
+                    Se houve um deslize, um tropeço no caminho,<br>
+                    Sei que a estrada é nossa, e sigo o seu carinho.<br>
+                    Não mais a sombra, mas a luz que você me deu,<br>
+                    A reconciliação completa que em seu peito nasceu.<br>
+                    Obrigado por ser o farol que me faz recordar<br>
+                    Que o laço da nossa amizade não há como quebrar.
+                </p>
+                <p class="page-number">Página 1</p>
+                <button onclick="nextPage()">Virar a Página</button>
+            </div>
+            
+            <div class="page photo-page" id="page-3">
+                <img src="foto_momento_1.jpg" alt="Foto de um momento nosso" class="moment-photo">
+                <p>
+                    Sua força não é de ferro, mas de um coração que encanta,<br>
+                    Você é única, a canção que a vida não canta.<br>
+                    Lá no vale escuro, onde o medo parecia reinar,<br>
+                    Você foi a flauta mágica que me ensinou a sonhar.<br>
+                    É a quietude da floresta que só o **Totoro** traz,<br>
+                    A gigante e gentil presença que me devolve a paz.<br>
+                    Nosso afeto é como a lealdade de Jiji por Kiki,<br>
+                    Um companheirismo leve que ignora qualquer bico.<br>
+                    Pois é ao seu lado que eu encontro, sem buscar,<br>
+                    A bússola para o futuro, o porto para ancorar.
+                </p>
+                <p class="page-number">Página 2</p>
+                <button onclick="nextPage()">Virar a Página</button>
+            </div>
+            
+            <div class="page poem-page" id="page-4">
+                <p>
+                    Em você vejo a coragem serena da jovem Chihiro,<br>
+                    Que não esquece quem é, mesmo no mais febril suspiro.<br>
+                    É a esperança que floresce, como os jardins de Laputa,<br>
+                    Um tesouro guardado em cada longa e doce disputa.<br>
+                    Minha admiração é imensa, o amor de irmão que me guia,<br>
+                    Pela pessoa forte e única que você é todo dia.<br>
+                    E o meu afeto por ti, que sempre te envolve e te chama,<br>
+                    É o abraço de **Haku** que redescobre a chama.
+                </p>
+                <p class="page-number">Página 3</p>
+                <button onclick="nextPage()">Virar a Página</button>
+            </div>
+
+            <div class="page final-page" id="page-5">
+                <p>
+                    Que a força do nosso *sempre* apague qualquer vestígio,<br>
+                    Deixe o tempo fluir, e firme o nosso prestígio.<br>
+                    Você é a voz que acalma, a chama que não se apaga,<br>
+                    A amizade de uma vida, a história que não se indaga.<br>
+                    Obrigado por tudo, por ser quem você é e sempre foi,<br>
+                    Meu carinho é **eterno, um amor que não é temporário**, hoje e depois.
+                </p>
+                <p class="page-number">Página 4</p>
+                <button onclick="nextPage()">Virar a Página</button>
+            </div>
+
+            <div class="page back-cover" id="page-6">
+                <h2>Com todo o meu amor e gratidão.</h2>
+                <p class="signature">Seu irmão, para sempre.</p>
+                <p class="small-text">Este livro é apenas o começo da nossa história.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
