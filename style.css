@@ -1,0 +1,141 @@
+/* ------------------------------------------- */
+/* 1. ESTILOS GERAIS E FUNDO GATXIBLI (GHIBLI) */
+/* ------------------------------------------- */
+
+/* Importação de Fonte: Caligrafia suave para o toque Ghibli (substitua por uma fonte de sua escolha) */
+@import url('https://fonts.googleapis.com/css2?family=Marck+Script&family=Open+Sans:wght@300;400&display=swap');
+
+:root {
+    /* Cores Suaves e Orgânicas */
+    --color-background: #e9f5e3; /* Verde/Azul claro suave (Céu ou Nuvem) */
+    --color-page: #ffffff;      /* Branco puro para as páginas */
+    --color-text: #333;         /* Cinza escuro para facilitar a leitura */
+    --color-primary: #8aa99d;   /* Verde musgo (Ghibli) para detalhes */
+    --color-accent: #f8b400;    /* Amarelo suave (luz do sol) para destaque */
+}
+
+body {
+    background-color: var(--color-background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    color: var(--color-text);
+    overflow: hidden; /* Garante que o fundo não role */
+}
+
+/* ------------------------------------------- */
+/* 2. ESTRUTURA DO LIVRO E EFEITO 3D */
+/* ------------------------------------------- */
+
+.book-container {
+    /* Ajusta o tamanho da área visível do livro */
+    width: 600px;
+    height: 800px;
+    /* Centraliza o livro na tela */
+    position: relative; 
+}
+
+.book {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    /* ESSENCIAL: Configura o ambiente 3D para rotação */
+    perspective: 1500px; 
+    transform-style: preserve-3d;
+}
+
+.page {
+    /* Todas as páginas sobrepostas */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-page);
+    padding: 40px;
+    box-sizing: border-box;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    
+    /* Configurações 3D */
+    transform-origin: left center; /* O eixo de rotação é o lado esquerdo */
+    transition: transform 1.5s ease-in-out, z-index 0s 1.5s; /* Transição suave */
+    transform: rotateY(0deg); /* Estado inicial: reto */
+    z-index: 10; /* Garante que as páginas não viradas estejam visíveis */
+    
+    /* Layout do Conteúdo */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    
+    /* Empilha as páginas: a capa deve ter o maior z-index */
+    /* Você pode ajustar o z-index de cada página no HTML se necessário */
+}
+
+/* A CLASSE MÁGICA: O que acontece quando o JS adiciona 'flipped' */
+.flipped {
+    /* Rotação: Vira 180 graus (mostrando o verso, que é a próxima página) */
+    transform: rotateY(-180deg);
+    /* move o z-index para baixo APÓS a transição (1.5s) */
+    z-index: 0; 
+}
+
+/* ------------------------------------------- */
+/* 3. ESTILOS ESPECÍFICOS DE CONTEÚDO */
+/* ------------------------------------------- */
+
+h1 {
+    font-family: 'Marck Script', cursive;
+    font-size: 3em;
+    color: var(--color-primary);
+    margin-top: 50px;
+}
+
+.cover-image {
+    max-width: 80%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para as páginas de poema */
+.poem-page p, .photo-page p, .final-page p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    text-align: left; /* Centraliza o poema, mas alinha o texto */
+    margin: 20px 0;
+    white-space: pre-wrap; /* Mantém a formatação de linha do HTML */
+}
+
+.moment-photo {
+    max-width: 90%;
+    max-height: 50%;
+    margin-bottom: 20px;
+    border: 3px solid var(--color-accent);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.page-number {
+    font-size: 0.8em;
+    color: #aaa;
+    align-self: flex-end; /* Coloca o número no canto inferior direito */
+}
+
+/* Botões */
+button {
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+    margin-top: 15px;
+}
+
+button:hover {
+    background-color: #6a8075; /* Sombra do verde musgo */
+}
